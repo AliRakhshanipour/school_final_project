@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import bcrypt from "bcrypt";
 
-class User extends Model {
+export class User extends Model {
 
     getTranslatedRole() {
         const roleTranslations = {

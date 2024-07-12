@@ -29,10 +29,7 @@ export const UserController = (() => {
 
         async listUser(req, res, next) {
             try {
-                // Extract query parameters for pagination and filtering
                 const { page = 1, limit = 10, username, role } = req.query;
-
-                // Build the where clause for filtering
                 const whereClause = {};
                 if (username) {
                     whereClause.username = { [Op.like]: `%${username}%` };
@@ -40,11 +37,7 @@ export const UserController = (() => {
                 if (role) {
                     whereClause.role = role;
                 }
-
-                // Calculate offset for pagination
                 const offset = (page - 1) * limit;
-
-                // Fetch users with pagination and filtering
                 const { count, rows } = await this.#model.findAndCountAll({
                     attributes: {
                         exclude: ["password", "createdAt", "updatedAt"]
@@ -53,8 +46,6 @@ export const UserController = (() => {
                     limit: parseInt(limit),
                     offset: parseInt(offset),
                 });
-
-                // Send response
                 res.status(StatusCodes.OK).json({
                     success: true,
                     message: UserMsg.USER_LIST_FETCHED,
