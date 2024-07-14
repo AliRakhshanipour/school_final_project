@@ -1,9 +1,20 @@
 import { Router } from "express";
-import { UserRoutes } from "./user.routes.js";
-import { StudentRoutes } from "./student.routes.js";
+import { FieldController } from "../modules/field/field.controller.js";
 
 const router = Router()
-router.use("/user", UserRoutes)
-router.use("/student", StudentRoutes)
+router.get("/login", (req, res) => {
+    res.render("pages/login.ejs")
+})
+router.get("/fields", FieldController.getFieldList)
 
-export { router as MainRoutes }
+router.get("/signup", (req, res) => {
+    res.render("pages/signup.ejs")
+})
+
+router.get("/", (req, res) => {
+    res.render("pages/main.ejs")
+})
+
+export {
+    router as MainRouter
+}

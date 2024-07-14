@@ -1,0 +1,43 @@
+<section>
+    <div class="container py-5">
+        <div class="row section-header">
+            <div class="col-md-12 text-center">
+                <h2 class="display-5 fw-bold">رشته‌های تخصصی و فنی هنرستان</h2>
+                <p class="text-muted">با رشته‌های تحصیلی هنرستان بیشتر آشنا شوید</p>
+            </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <% fields.forEach(field => { %>
+                <div class="col">
+                    <div class="card p-4 h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column align-items-center">
+                            <% if (field.Images && field.Images.length > 0) { %>
+                                <img src="<%= field.Images[0].url %>" class="img-fluid mb-3" alt="<%= field.title %>" style="height: 200px; object-fit: cover; width: 100%;">
+                            <% } else { %>
+                                <div class="bs-icon mb-3">
+                                    <!-- Insert your icon SVG or any other icon here -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-school">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path>
+                                        <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path>
+                                    </svg>
+                                </div>
+                            <% } %>
+                            <h4 class="card-title"><%= field.title %></h4>
+                            <p class="card-text"><%= field.short_desc %></p>
+                            <a class="fw-bold link-primary mt-auto" href="/field-details/<%= field.id %>">
+                                بیشتر بدانید&nbsp;
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-narrow-right fs-5">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <line x1="15" y1="16" x2="19" y2="12"></line>
+                                    <line x1="15" y1="8" x2="19" y2="12"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>

@@ -7,6 +7,12 @@ import { initStudent } from "./student.model.js";
 import { initFamilyInfo } from "./familyInfo.model.js";
 import { associateModels } from "./associations.js";
 import { initEducationInfo } from "./educationInfo.model.js";
+import { initAddress } from "./address.model.js";
+import { initSchool } from "./school.model.js";
+import { initRule } from "./rule.model.js";
+import { initField } from "./field.model.js";
+import { initImage } from "./image.model.js";
+
 
 // Utility to handle ES6 module path and require
 const __filename = fileURLToPath(import.meta.url);
@@ -24,6 +30,11 @@ export const models = {
   FamilyInfo: initFamilyInfo(sequelize),
   EducationInfo: initEducationInfo(sequelize),
   Student: initStudent(sequelize),
+  Address: initAddress(sequelize),
+  School: initSchool(sequelize),
+  Rule: initRule(sequelize),
+  Field: initField(sequelize),
+  Image: initImage(sequelize)
 };
 
 associateModels(models)
