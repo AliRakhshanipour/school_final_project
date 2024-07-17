@@ -1,0 +1,86 @@
+<div class="main-content padding-0 fields">
+    <div class="row no-gutters">
+        <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
+            <p class="box__title">فیلدها</p>
+            <div class="table__box">
+                <table class="table">
+                    <thead role="rowgroup">
+                        <tr role="row" class="title-row">
+                            <th>شناسه</th>
+                            <th>عنوان</th>
+                            <th>توضیح کوتاه</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% fields.forEach(field => { %>
+                            <tr role="row">
+                                <td><a href="#"><%= field.id %></a></td>
+                                <td><a href="#"><%= field.title %></a></td>
+                                <td><%= field.short_desc %></td>
+                                <td>
+                                    <button class="item-delete mlg-15" onclick="openDeleteModal('<%= field.id %>')" title="حذف"></button>
+                                    <button class="item-edit" onclick="openEditModal('<%= field.id %>', '<%= field.title %>', '<%= field.short_desc %>', '<%= field.full_desc %>')" title="ویرایش"></button>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-4 bg-white">
+            <p class="box__title">ایجاد فیلد جدید</p>
+            <form id="createFieldForm" action="/admin/field/create" method="POST" class="padding-30">
+                <input type="text" placeholder="عنوان" name="title" class="text" required>
+                <input type="text" placeholder="توضیح کوتاه" name="short_desc" class="text" required>
+                <textarea placeholder="توضیح کامل" name="full_desc" class="text" required></textarea>
+                <button type="submit" class="btn btn-netcopy_net">اضافه کردن</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Field Modal Structure -->
+<div id="editFieldModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>ویرایش فیلد</h2>
+        </div>
+        <div class="modal-body">
+            <form id="editFieldForm">
+                <div class="form-group">
+                    <label for="edit-title">عنوان:</label>
+                    <input type="text" id="edit-title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-short_desc">توضیح کوتاه:</label>
+                    <input type="text" id="edit-short_desc" name="short_desc" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-full_desc">توضیح کامل:</label>
+                    <textarea id="edit-full_desc" name="full_desc" required></textarea>
+                </div>
+                <input type="hidden" id="edit-id" name="id">
+                <button type="button" class="btn btn-netcopy_net" onclick="submitEditForm()">ذخیره</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal Structure -->
+<div id="deleteFieldModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeDeleteModal()">&times;</span>
+            <h2>تأیید حذف فیلد</h2>
+        </div>
+        <div class="modal-body">
+            <p>آیا از حذف فیلد اطمینان دارید؟</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-delete" onclick="deleteField()">حذف</button>
+            <button type="button" class="btn btn-cancel" onclick="closeDeleteModal()">انصراف</button>
+        </div>
+    </div>
+</div>

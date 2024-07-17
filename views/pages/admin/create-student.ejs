@@ -1,0 +1,167 @@
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">فرم ثبت نام دانش‌آموز</h2>
+    <div id="message"></div>
+    <form id="studentForm">
+        <!-- Personal Information Section -->
+        <div class="section-title">اطلاعات شخصی</div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="first_name" class="form-label form-label-top">نام:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="last_name" class="form-label form-label-top">نام خانوادگی:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="national_code" class="form-label form-label-top">کد ملی:</label>
+                <input type="text" class="form-control" id="national_code" name="national_code" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="passport_serial" class="form-label form-label-top">شماره شناسنامه:</label>
+                <input type="text" class="form-control" id="passport_serial" name="passport_serial" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="father_name" class="form-label form-label-top">نام پدر:</label>
+                <input type="text" class="form-control" id="father_name" name="father_name" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="phone_number" class="form-label form-label-top">شماره همراه:</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" required pattern="^[0-9]{10,15}$" title="فرمت شماره همراه را به درستی وارد نمایید">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="birth_date" class="form-label form-label-top">تاریخ تولد:</label>
+                <input type="text" data-jdp data-jdp-max-date="today" class="form-control" id="birth_date" name="birth_date" placeholder="تاریخ تولد را وارد کنید" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="birth_city" class="form-label form-label-top">شهر محل تولد:</label>
+                <input type="text" class="form-control" id="birth_city" name="birth_city" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="religion" class="form-label form-label-top">مذهب:</label>
+                <div class="position-relative">
+                    <select class="custom-select" id="religion" name="religion" required>
+                        <option value="" disabled selected>انتخاب کنید</option>
+                        <option value="شیعه">شیعه</option>
+                        <option value="سنی">سنی</option>
+                        <option value="سایر">سایر</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="physical_condition" class="form-label form-label-top">وضعیت جسمانی:</label>
+                <input type="text" class="form-control" id="physical_condition" name="physical_condition">
+            </div>
+            <div class="col-lg-4">
+                <label for="grade_avg" class="form-label form-label-top">انضباط سال نهم:</label>
+                <input type="text" class="form-control" id="grade_avg" name="grade_avg" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="sport_activities" class="form-label form-label-top">فعالیت‌های ورزشی:</label>
+                <input type="text" class="form-control" id="sport_activities" name="sport_activities">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="cultural_activities" class="form-label form-label-top">فعالیت‌های فرهنگی:</label>
+                <input type="text" class="form-control" id="cultural_activities" name="cultural_activities">
+            </div>
+            <div class="col-lg-4">
+                <label for="father_education" class="form-label form-label-top">تحصیلات پدر:</label>
+                <div class="position-relative">
+                    <select class="custom-select" id="father_education" name="father_education" required>
+                        <option value="" disabled selected>انتخاب کنید</option>
+                        <option value="زیر دیپلم">زیر دیپلم</option>
+                        <option value="دیپلم">دیپلم</option>
+                        <option value="کاردانی">کاردانی</option>
+                        <option value="لیسانس">لیسانس</option>
+                        <option value="فوق لیسانس">فوق لیسانس</option>
+                        <option value="دکتری">دکتری</option>
+                        <option value="بقیه">بقیه</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label for="mother_education" class="form-label form-label-top">تحصیلات مادر:</label>
+                <div class="position-relative">
+                    <select class="custom-select" id="mother_education" name="mother_education" required>
+                        <option value="" disabled selected>انتخاب کنید</option>
+                        <option value="زیر دیپلم">زیر دیپلم</option>
+                        <option value="دیپلم">دیپلم</option>
+                        <option value="کاردانی">کاردانی</option>
+                        <option value="لیسانس">لیسانس</option>
+                        <option value="فوق لیسانس">فوق لیسانس</option>
+                        <option value="دکتری">دکتری</option>
+                        <option value="بقیه">بقیه</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="father_job" class="form-label form-label-top">شغل پدر:</label>
+                <input type="text" class="form-control" id="father_job" name="father_job" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="mother_job" class="form-label form-label-top">شغل مادر:</label>
+                <input type="text" class="form-control" id="mother_job" name="mother_job" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="father_phone_number" class="form-label form-label-top">شماره همراه پدر:</label>
+                <input type="text" class="form-control" id="father_phone_number" name="father_phone_number" pattern="^[0-9]{10,15}$" title="فرمت شماره همراه پدر را به درستی وارد نمایید">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="mother_phone_number" class="form-label form-label-top">شماره همراه مادر:</label>
+                <input type="text" class="form-control" id="mother_phone_number" name="mother_phone_number" pattern="^[0-9]{10,15}$" title="فرمت شماره همراه مادر را به درستی وارد نمایید">
+            </div>
+            <div class="col-lg-4">
+                <label for="home_address" class="form-label form-label-top">آدرس منزل:</label>
+                <input type="text" class="form-control" id="home_address" name="home_address" required>
+            </div>
+            <div class="col-lg-4">
+                <label for="home_postal_code" class="form-label form-label-top">کد پستی منزل:</label>
+                <input type="text" class="form-control" id="home_postal_code" name="home_postal_code">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-4">
+                <label for="home_phone" class="form-label form-label-top">تلفن منزل:</label>
+                <input type="text" class="form-control" id="home_phone" name="home_phone" pattern="^[0-9]{8,11}$" title="فرمت شماره تلفن منزل را به درستی وارد نمایید">
+            </div>
+            <div class="col-lg-4">
+                <label for="emergency_phone_number" class="form-label form-label-top">شماره همراه اضطراری:</label>
+                <input type="text" class="form-control" id="emergency_phone_number" name="emergency_phone_number" pattern="^[0-9]{10,15}$" title="فرمت شماره همراه اضطراری را به درستی وارد نمایید">
+            </div>
+            <div class="col-lg-4">
+                <label for="student_lives_with" class="form-label form-label-top">محل اقامت دانش‌آموز:</label>
+                <div class="position-relative">
+                    <select class="custom-select" id="student_lives_with" name="student_lives_with" required>
+                        <option value="" disabled selected>انتخاب کنید</option>
+                        <option value="والدین">والدین</option>
+                        <option value="مادرخوانده و پدر">مادرخوانده و پدر</option>
+                        <option value="پدرخوانده و مادر">پدرخوانده و مادر</option>
+                        <option value="پدربزرگ و مادربزرگ">پدربزرگ و مادربزرگ</option>
+                        <option value="بقیه">بقیه</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label for="number_of_family_members" class="form-label form-label-top">تعداد اعضای خانواده:</label>
+                <input type="number" class="form-control" id="number_of_family_members" name="number_of_family_members" required min="0">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">ثبت دانش‌آموز</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -8,18 +8,20 @@ export const ErrorHandler = (() => {
         constructor() {
             this.#app = app
         }
+
         notFoundHandler(req, res, next) {
-            res.status(StatusCodes.NOT_FOUND).json({
-                message: ErrMsg.NOT_FOUND,
-            });
+            res.status(StatusCodes.NOT_FOUND);
+            res.render("error/404", { title: "404 Not Found", layout: false });
         }
 
         errorHandler(err, req, res, next) {
-            const status = err.status || err.statusCode || 500
-            res.status(status || StatusCodes.INTERNAL_SERVER_ERROR).json({
-                message: err.message || ErrMsg.INTERNAL_SERVER_ERROR,
+            const status = err.status || err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
+            res.status(status);
+            res.json({
+                message: err.message || "Internal Server Error",
             });
         }
+
 
         initialize() {
             this.#app.use(this.notFoundHandler);

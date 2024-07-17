@@ -29,15 +29,23 @@ export const FieldController = (() => {
 
         async getField(req, res, next) {
             try {
-                const { id } = req.params
-                const field = await this.#model.findByPk(id) || (() => {
+                const { fieldId: id } = req.params
+                const field = await this.#model.findByPk(id, {
+                    include: [
+                        {
+                            model: models.Image,
+                            attributes: ["url"]
+                        }
+                    ]
+                }) || (() => {
                     throw new createHttpError.NotFound(FieldMsg.FIELD_NOT_FOUND)
                 })()
-                res.status(StatusCodes.OK).json({
-                    success: true,
-                    message: FieldMsg.FIELD_FETCHED,
-                    field
-                })
+                // res.status(StatusCodes.OK).json({
+                //     success: true,
+                //     message: FieldMsg.FIELD_FETCHED,
+                //     field
+                // })
+                res.render("pages/field-detail.ejs", { field })
             } catch (error) {
                 next(error)
             }

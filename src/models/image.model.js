@@ -16,6 +16,7 @@ export class Image extends Model {
     }
 }
 
+
 export const initImage = (sequelize) => {
     return Image.init({
         id: {

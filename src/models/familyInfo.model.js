@@ -1,8 +1,7 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes, Sequelize } from "sequelize";
 
 export class FamilyInfo extends Model {
     static associate(models) {
-        // Define associations with other models here if needed
         FamilyInfo.belongsTo(models.Student, {
             foreignKey: "student_id",
             onDelete: "CASCADE",
@@ -29,6 +28,10 @@ export function initFamilyInfo(sequelize) {
                 }
             }
         },
+        father_job: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         mother_education: {
             type: DataTypes.ENUM,
             values: ['زیر دیپلم', 'دیپلم', 'کاردانی', 'لیسانس', 'فوق لیسانس', 'دکتری', 'بقیه'],
@@ -39,6 +42,10 @@ export function initFamilyInfo(sequelize) {
                     msg: "مدرک تحصیلی مادر را به درستی انتخاب کنید"
                 }
             }
+        },
+        mother_job: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         father_phone_number: {
             type: DataTypes.STRING,
@@ -73,6 +80,10 @@ export function initFamilyInfo(sequelize) {
         },
         home_address: {
             type: DataTypes.STRING,
+            allowNull: false
+        },
+        home_postal_code: {
+            type: DataTypes.STRING,
             allowNull: true
         },
         home_phone: {
@@ -81,8 +92,7 @@ export function initFamilyInfo(sequelize) {
             validate: {
                 isIranianHomePhoneNumber(value) {
                     const regex = /^[0-9]{8,11}$/;
-
-                    if (!regex.test(value)) {
+                    if (value && !regex.test(value)) {
                         throw new Error("فرمت شماره تلفن منزل را به درستی وارد نمایید");
                     }
                 }
@@ -101,7 +111,7 @@ export function initFamilyInfo(sequelize) {
         number_of_family_members: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 0 // Example default value, adjust as needed
+            defaultValue: 0
         },
         student_id: {
             type: DataTypes.INTEGER,
@@ -112,5 +122,4 @@ export function initFamilyInfo(sequelize) {
         modelName: 'FamilyInfo',
         tableName: 'family_info',
     });
-
 }

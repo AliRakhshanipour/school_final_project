@@ -6,20 +6,16 @@ import { initUser } from "./user.model.js";
 import { initStudent } from "./student.model.js";
 import { initFamilyInfo } from "./familyInfo.model.js";
 import { associateModels } from "./associations.js";
-import { initEducationInfo } from "./educationInfo.model.js";
 import { initAddress } from "./address.model.js";
 import { initSchool } from "./school.model.js";
 import { initRule } from "./rule.model.js";
 import { initField } from "./field.model.js";
 import { initImage } from "./image.model.js";
 
-
-// Utility to handle ES6 module path and require
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const require = createRequire(import.meta.url);
 
-// Use CommonJS require to import the JSON file
 const config = require(path.join(__dirname, "../config/config.json"));
 const { development } = config;
 
@@ -28,7 +24,6 @@ export const sequelize = new Sequelize(development);
 export const models = {
   User: initUser(sequelize),
   FamilyInfo: initFamilyInfo(sequelize),
-  EducationInfo: initEducationInfo(sequelize),
   Student: initStudent(sequelize),
   Address: initAddress(sequelize),
   School: initSchool(sequelize),

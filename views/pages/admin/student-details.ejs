@@ -1,0 +1,127 @@
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="px-6 py-4">
+            <h1 class="text-xl font-bold text-gray-800 mb-2">پروفایل دانش‌آموز</h1>
+        </div>
+        <div class="px-6 py-4">
+            <form>
+                <!-- اطلاعات دانش‌آموز -->
+                <fieldset>
+                    <legend class="text-lg font-semibold mb-4">اطلاعات دانش‌آموز</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">شناسه</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="studentId" value="<%= student.id %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">نام و نام خانوادگی</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="fullName" value="<%= student.first_name %> <%= student.last_name %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">نام پدر</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="fatherName" value="<%= student.father_name %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">کد ملی</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="nationalCode" value="<%= student.national_code %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">شماره تماس</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="phoneNumber" value="<%= student.phone_number %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">تاریخ تولد</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="birthDate" value="<%= student.birth_date %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">شهر محل تولد</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="birthCity" value="<%= student.birth_city %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">مذهب</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="religion" value="<%= student.religion %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">وضعیت جسمانی</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="physicalCondition" value="<%= student.physical_condition %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">وضعیت پذیرش</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="acceptionStatus" value="<%= student.acception_status %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">رشته پذیرفته شده</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="acceptedField" value="<%= student.accepted_field || 'N/A' %>" readonly>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- اطلاعات خانواده -->
+                <% if (student.FamilyInfo) { %>
+                <fieldset class="mt-6">
+                    <legend class="text-lg font-semibold mb-4">اطلاعات خانواده</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">تحصیلات پدر</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="fatherEducation" value="<%= student.FamilyInfo.father_education %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">تحصیلات مادر</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="motherEducation" value="<%= student.FamilyInfo.mother_education %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">شماره تماس پدر</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="fatherPhoneNumber" value="<%= student.FamilyInfo.father_phone_number %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">شماره تماس مادر</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="motherPhoneNumber" value="<%= student.FamilyInfo.mother_phone_number %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">محل سکونت دانش‌آموز</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="studentLivesWith" value="<%= student.FamilyInfo.student_lives_with %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">آدرس منزل</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="homeAddress" value="<%= student.FamilyInfo.home_address %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">شماره تماس منزل</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="homePhone" value="<%= student.FamilyInfo.home_phone %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">شماره تماس اضطراری</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="emergencyPhoneNumber" value="<%= student.FamilyInfo.emergency_phone_number %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">تعداد اعضای خانواده</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="numberOfFamilyMembers" value="<%= student.FamilyInfo.number_of_family_members %>" readonly>
+                        </div>
+                    </div>
+                </fieldset>
+                <% } %>
+
+                <!-- اطلاعات تحصیلی -->
+                <% if (student) { %>
+                <fieldset class="mt-6">
+                    <legend class="text-lg font-semibold mb-4">اطلاعات تحصیلی</legend>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">انضباط سال نهم</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="gradeAvg" value="<%= student.grade_avg %>" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">نمره ریاضی</label>
+                            <input type="text" class="form-input mt-1 block w-full bg-gray-100 px-4 py-2 rounded-md border border-gray-300" id="mathMark" value="<%= student.math_mark %>" readonly>
+                        </div>
+                    </div>
+                </fieldset>
+                <% } %>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-8 text-center">
+        <a href="/admin/student/list" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">بازگشت به لیست دانش‌آموزان</a>
+    </div>
+</div>

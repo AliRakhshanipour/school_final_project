@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - صفحه مورد نظر یافت نشد</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Optional: Custom styles for the button */
+        .back-button {
+            background-color: #2563EB;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #1D4ED8;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <div class="max-w-lg p-8 bg-white shadow-lg rounded-lg text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">404 - صفحه مورد نظر یافت نشد</h1>
+        <p class="text-gray-600 mb-8">متاسفیم، صفحه‌ای که به دنبال آن بودید پیدا نشد.</p>
+        <button class="back-button" onclick="goBack()">بازگشت به صفحه قبلی</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>
